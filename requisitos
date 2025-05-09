@@ -1,0 +1,11 @@
+Tema: E-commerce
+1.  O sistema deve garantir que os produtos não tenham nomes com menos de 20 caracteres
+2.  Os SKUS não podem ter preço menor ou igual a zero
+3.  Os SKUS  devem ter nome e código de referencia
+4.  Os clientes devem ter um cpf válido
+5.  Nos pedidos devem conter as informações do cliente, variantes e o total do pedido.
+6.  O pedido deve ter uma data valida
+7.  Um SKU não pode ser cadastrado sem ser anexado a um produto.
+8.  Não pode ser vendido um produto com estoque zerado
+9.  O estoque do SKU deve ser atualizado a cada venda
+10. O cliente não pode ter nome com menos de 10 caracteres
