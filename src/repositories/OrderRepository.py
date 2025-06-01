@@ -10,11 +10,11 @@ def add_order(client_id, variants) -> Order:
 
     for id in variants:
         variant = get_variant(id)
-        if(variant and variant.quantity > 0):
-            decrement_variant(variant.id)
-            total += variant.price
-            variantIDS.append(variant.id)
-            variantsF.append(variant.toDict())
+        decrement_variant(variant.id)
+        total += variant.price
+        variantIDS.append(variant.id)
+        variantsF.append(variant.toDict())
+
 
     order = Order(total=total, client_id=client_id)
     db.session.add(order)

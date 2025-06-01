@@ -11,6 +11,6 @@ class Product(db.Model):
     id          = Column("id",Integer,primary_key=True)
     name        = Column("name", String(150), nullable=False)
     description = Column("description", String(1000), nullable=False)
-
+    
     def toDict(self):
        return { c.key: getattr(self, c.key) for c in inspect(self).mapper.column_attrs }
