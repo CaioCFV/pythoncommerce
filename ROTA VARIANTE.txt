@@ -1,0 +1,33 @@
+CADASTRO VARIANTE
+    POST /api/variant
+    BODY
+        {
+            "name": "P",
+            "ean": 1234,
+            "quantity": 10,
+            "price": 10000,
+            "product_id": 2
+        }
+    RESPONSE
+        {
+            "id": 1,
+            "name": "P",
+            "ean": 1234,
+            "quantity": 10,
+            "price": 10000,
+            "product_id": 2
+        }
+
+LISTAR VARIANTE
+    GET /api/variant
+    RESPONSE
+        [
+            {
+                "id": 1,
+                "name": "P",
+                "ean": 1234,
+                "quantity": 10,
+                "price": 10000,
+                "product_id": 2
+            }
+        ]

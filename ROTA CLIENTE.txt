@@ -1,0 +1,25 @@
+CADASTRO CLIENTE
+    POST /api/client
+    BODY
+        {
+            "name": "Caio",
+            "cpf": "5555555555"
+        }
+    RESPONSE
+        {
+            "id": 1,
+            "name": "Caio",
+            "cpf": "5555555555"
+        }
+
+LISTAR CLIENTES
+    GET /api/client
+    RESPONSE
+        [
+            {
+                "id": 1,
+                "name": "Caio",
+                "cpf": "5555555555"
+            }
+        ]
+

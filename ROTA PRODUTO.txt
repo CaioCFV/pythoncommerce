@@ -1,0 +1,24 @@
+CADASTRO PRODUTO
+    POST /api/product
+    BODY
+        {
+            "name": "Camisa Florida",
+            "description": "Uma camisa florida para usar no solzin"
+        }
+    RESPONSE
+        {
+            "id": 1,
+            "name": "Camisa Florida",
+            "description": "Uma camisa florida para usar no solzin"
+        }
+
+LISTAR PRODUTO
+    GET /api/variant
+    RESPONSE
+        [
+            {
+                "id": 1,
+                "name": "Camisa Florida",
+                "description": "Uma camisa florida para usar no solzin"
+            }
+        ]

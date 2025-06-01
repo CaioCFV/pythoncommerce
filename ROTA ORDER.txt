@@ -1,0 +1,63 @@
+CADASTRO ORDER
+    POST /api/order
+    BODY
+        {
+            "client_id": 2,
+            "variants": [1,2,3,4,5,6]
+        }
+    RESPONSE
+        {
+	"order_id": 17,
+	"client_id": 2,
+	"variants": [
+            {
+                "id": 1,
+                "name": "P",
+                "ean": "1234",
+                "quantity": 6,
+                "price": 10000,
+                "product_id": null
+            },
+            {
+                "id": 2,
+                "name": "P",
+                "ean": "1234",
+                "quantity": 6,
+                "price": 10000,
+                "product_id": null
+            },
+            {
+                "id": 3,
+                "name": "P",
+                "ean": "1234",
+                "quantity": 6,
+                "price": 10000,
+                "product_id": null
+            },
+            {
+                "id": 4,
+                "name": "P",
+                "ean": "1234",
+                "quantity": 6,
+                "price": 10000,
+                "product_id": null
+            },
+            {
+                "id": 5,
+                "name": "P",
+                "ean": "1234",
+                "quantity": 6,
+                "price": 10000,
+                "product_id": null
+            },
+            {
+                "id": 6,
+                "name": "P",
+                "ean": "1234",
+                "quantity": 6,
+                "price": 10000,
+                "product_id": null
+            }
+        ],
+        "total": 60000
+    }
