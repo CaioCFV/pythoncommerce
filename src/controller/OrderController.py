@@ -21,6 +21,8 @@ class Order(Resource):
 
             order = add(**data)
 
+            print(order)
+            
             return order, 200
 
         except ValidationError as err:

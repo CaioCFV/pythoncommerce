@@ -1,12 +1,13 @@
 Tema: E-commerce
-1.  [OK] O sistema deve garantir que os produtos não tenham nomes com menos de 20 caracteres
-2.  [OK] Os clientes devem ter um cpf válido
-3.  [OK] O cliente não pode ter nome com menos de 10 caracteres
-4.  [OK] Os SKUS não podem ter preço menor ou igual a zero
-5.  [OK] Os SKUS não podem quantidade menor ou igual a zero
-6.  [OK] Um SKU não pode ser cadastrado sem ser anexado a um produto.
-7.  [OK] Nos pedidos devem conter as informações do cliente, variantes e o total do pedido.
-8.  [TESTAR] Não pode ser vendido um produto com estoque zerado
-9.  [TESTAR] O pedido deve ter uma data valida
-10. [TESTAR]O estoque do SKU deve ser atualizado a cada venda
+1.   [OK] O sistema deve garantir que os produtos não tenham nomes com menos de 20 caracteres
+2.   [OK] Os clientes devem ter um cpf válido
+3.   [OK] O cliente não pode ter nome com menos de 10 caracteres
+4.   [OK] Os SKUS não podem ter preço menor ou igual a zero
+5.   [OK] Os SKUS não podem quantidade menor ou igual a zero
+6.   [OK] Um SKU não pode ser cadastrado sem ser anexado a um produto.
+7.   [OK] Nos pedidos devem conter as informações do cliente, variantes e o total do pedido.
+8.   [OK] O estoque do SKU deve ser atualizado a cada venda
+9.   [OK] Não pode ser vendido um produto com estoque zerado
+10.  [OK] O pedido deve ter uma data valida
+
 
