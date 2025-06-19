@@ -2,9 +2,9 @@ from styleguide.component import Heading1, Gap1
 from abstracts.Screen import Screen
 import tkinter as tk
 from tkinter import ttk
-from services.ProductService import ProductService
+from services.VariantService import VariantService
 
-class ListProductFrame(Screen):
+class ListVariantFrame(Screen):
     def setup(self):
         title = Heading1(self.frame, "PRODUTOS")
         title.setGrid(row=1,  column=1, sticky="w", padx=0, pady=0)
@@ -26,11 +26,11 @@ class ListProductFrame(Screen):
         tabela.tag_configure("linha1", background="#E0E0E0")
         tabela.tag_configure("linha2", background="#FFFFFF") 
 
-        clientes = ProductService().list()
+        clientes = VariantService().list()
 
         for i, cliente in enumerate(clientes):
             tag = "linha1" if i % 2 == 0 else "linha2"
-            tabela.insert("", "end", values=(cliente['id'], cliente['name'], cliente['description']), tags=(tag,))
+            tabela.insert("", "end", values=(cliente['id'], cliente['name'], cliente['ean']), tags=(tag,))
 
         self.show()
 

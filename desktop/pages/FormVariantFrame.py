@@ -54,7 +54,7 @@ class FormVariantFrame(Screen):
        self.frame.tkraise()
 
 
- #self.frame.grid_rowconfigure(0, weight=1)
+        #self.frame.grid_rowconfigure(0, weight=1)
         #self.frame.grid_columnconfigure(0, weight=1)
 
         #label = tk.Label(self.frame, text="CPF:", fg="blue", anchor="w", bg="SystemButtonFace")

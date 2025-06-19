@@ -4,8 +4,9 @@ from tkinter import font
 from pages.FormClientFrame import FormClientFrame
 from pages.FormProductFrame import FormProductFrame
 from pages.FormVariantFrame import FormVariantFrame
-
 from pages.ListClientFrame import ListClientFrame
+from pages.ListProductFrame import ListProductFrame
+from pages.ListVariantFrame import ListVariantFrame
 
 import tkhotreload as tkhr
 
@@ -54,7 +55,9 @@ def app(*debugroot):
     frm_product        = FormProductFrame(appRoot)
     frm_variant        = FormVariantFrame(appRoot)
     frm_client_view    = ListClientFrame(appRoot)
-    
+    frm_client_view    = ListProductFrame(appRoot)
+    frm_client_view    = ListVariantFrame(appRoot)
+
     # frm_order   = OrderFrame(appRoot)
     # frm_about   = AboutFrame(appRoot)
 

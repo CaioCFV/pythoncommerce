@@ -1,7 +1,17 @@
-from styleguide.component import Heading1, Gap1, Gap2,  Label, Input, ButtonPrimary
+from styleguide.component import Heading1, Gap1
 from abstracts.Screen import Screen
 import tkinter as tk
 from tkinter import ttk
+from services.ClientService import ClientService
+
+
+
+def formatar_cpf(cpf_str):
+    # Remove tudo que não for número
+    numeros = ''.join(filter(str.isdigit, cpf_str))
+    if len(numeros) != 11:
+        raise ValueError("CPF deve ter 11 dígitos.")
+    return f"{numeros[:3]}.{numeros[3:6]}.{numeros[6:9]}-{numeros[9:]}"
 
 class ListClientFrame(Screen):
     def setup(self):
@@ -12,36 +22,33 @@ class ListClientFrame(Screen):
         gap.setGrid(row=2, column=1)
 
         tabelaframe = tk.Frame()
-        tabela = ttk.Treeview(self.frame, columns=("ID", "Nome", "Email"), show="headings", height=10)
+        tabela = ttk.Treeview(self.frame, columns=("id", "cpf", "name"), show="headings", height=10)
         tabela.grid(row=8, column=1, sticky="nsew")
-        tabela.heading("ID", text="ID")
-        tabela.heading("Nome", text="Nome")
-        tabela.heading("Email", text="Email")
+        tabela.heading("id", text="ID")
+        tabela.heading("cpf", text="Nome")
+        tabela.heading("name", text="Email")
 
-        tabela.column("ID", width=50, anchor="center")
-        tabela.column("Nome", width=200)
-        tabela.column("Email", width=300)
+        tabela.column("id", width=80, anchor="center")
+        tabela.column("cpf", width=280, anchor="center")
+        tabela.column("name", width=280, anchor="center")
 
         tabela.tag_configure("linha1", background="#E0E0E0")
         tabela.tag_configure("linha2", background="#FFFFFF") 
 
-        clientes = [
-             (1, " Caio Silva", " caio@email.com"),
-             (2, " Maria Souza", " maria@email.com"),
-             (3, " João Pereira", " joao@email.com"),
-             (1, " Caio Silva", " caio@email.com"),
-             (2, " Maria Souza", " maria@email.com"),
-             (3, " João Pereira", " joao@email.com"),
-        ]
+        clientes = ClientService().list()
 
         for i, cliente in enumerate(clientes):
             tag = "linha1" if i % 2 == 0 else "linha2"
-            tabela.insert("", "end", values=cliente, tags=(tag,))
+            tabela.insert("", "end", values=(cliente['id'], cliente['name'], formatar_cpf(cliente['cpf'])), tags=(tag,))
+
+        self.show()
 
     def open(self):
        self.frame.tkraise()
 
 
+    def show(self):
+        pass
         #self.frame.grid_rowconfigure(0, weight=1)
         #self.frame.grid_columnconfigure(0, weight=1)
 
