@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import font
 from pages.ClientFrame import ClientFrame
 from pages.ProductFrame import ProductFrame
+from pages.VariantFrame import VariantFrame
 import tkhotreload as tkhr
 
 
@@ -46,15 +47,16 @@ def app(*debugroot):
     appRoot.option_add("*Font", fonte_personalizada)
 
     # FRAMEZIN
-    frm_product   = ProductFrame(appRoot)
     frm_client    = ClientFrame(appRoot)
+    frm_product   = ProductFrame(appRoot)
+    frm_variant   = VariantFrame(appRoot)
     # frm_order   = OrderFrame(appRoot)
     # frm_about   = AboutFrame(appRoot)
 
     # MENUZIN
     menubar = tk.Menu(appRoot)
-    client = menubar.add_command(label="Clientes", command=lambda: frm_client.open())
-    client = menubar.add_command(label="Produtos", command=lambda: frm_product.open())
+    #client = menubar.add_command(label="Clientes", command=lambda: frm_client.open())
+    #client = menubar.add_command(label="Produtos", command=lambda: frm_product.open())
     submenu_clientes = tk.Menu(menubar, tearoff=0)
     submenu_clientes.add_command(label="Novo Cliente", command=lambda: print("Novo Cliente"))
     submenu_clientes.add_command(label="Listar Clientes", command=lambda: print("Listar Clientes"))

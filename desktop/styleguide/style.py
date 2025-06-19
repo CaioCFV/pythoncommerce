@@ -30,6 +30,28 @@ style = {
         'bg':"#f5f5f5",
         'pady':10,
         'padx':10
+    },
+    'input_medium': {
+        'width':'25', 
+        'height':'1',
+        'bd':'0', 
+        'relief':'solid', 
+        'highlightbackground':'#ddd', 
+        'highlightthickness':1,
+        'bg':"#f5f5f5",
+        'pady':10,
+        'padx':10
+    },
+    'textarea': {
+        'width':'50', 
+        'height':'8',
+        'bd':'0', 
+        'relief':'solid', 
+        'highlightbackground':'#ddd', 
+        'highlightthickness':1,
+        'bg':"#f5f5f5",
+        'pady':10,
+        'padx':10
     }
 }
 

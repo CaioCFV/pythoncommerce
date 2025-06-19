@@ -35,3 +35,11 @@ class Gap2(Component):
 class Input(Component):
     def __init__(self, frame):
         self.element = tk.Text(frame, **style['input'])
+
+class InputMedium(Component):
+    def __init__(self, frame):
+        self.element = tk.Text(frame, **style['input_medium'])
+
+class Textarea(Component):
+    def __init__(self, frame):
+        self.element = tk.Text(frame, **style['textarea'])
