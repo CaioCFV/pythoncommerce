@@ -1,6 +1,5 @@
 from styleguide.component import Heading1, Gap1, Gap2,  Label, Input, ButtonPrimary
 from abstracts.Screen import Screen
-import tkinter as tk
 
 class FormClientFrame(Screen):
     def setup(self):
@@ -53,9 +52,7 @@ class FormClientFrame(Screen):
         # tabela.heading("Nome", text="Nome")
         # tabela.heading("Email", text="Email")
 
-        # tabela.column("ID", width=50)
-        # tabela.column("Nome", width=150)
-        # tabela.column("Email", width=200)
+
 
         # tabela.tag_configure("linha1", background="#E0E0E0")
         # tabela.tag_configure("linha2", background="#FFFFFF") 

@@ -1,9 +1,12 @@
 import argparse
 import tkinter as tk
 from tkinter import font
-from desktop.pages.FormClientFrame import FormClientFrame
-from desktop.pages.FormProductFrame import FormProductFrame
-from desktop.pages.FormVariantFrame import FormVariantFrame
+from pages.FormClientFrame import FormClientFrame
+from pages.FormProductFrame import FormProductFrame
+from pages.FormVariantFrame import FormVariantFrame
+
+from pages.ListClientFrame import ListClientFrame
+
 import tkhotreload as tkhr
 
 
@@ -47,9 +50,11 @@ def app(*debugroot):
     appRoot.option_add("*Font", fonte_personalizada)
 
     # FRAMEZIN
-    frm_client    = FormClientFrame(appRoot)
-    frm_product   = FormProductFrame(appRoot)
-    frm_variant   = FormVariantFrame(appRoot)
+    frm_client         = FormClientFrame(appRoot)
+    frm_product        = FormProductFrame(appRoot)
+    frm_variant        = FormVariantFrame(appRoot)
+    frm_client_view    = ListClientFrame(appRoot)
+    
     # frm_order   = OrderFrame(appRoot)
     # frm_about   = AboutFrame(appRoot)
 

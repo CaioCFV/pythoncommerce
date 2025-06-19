@@ -1,7 +1,5 @@
 from styleguide.component import Heading1, Gap1, Gap2,  Label, Input, ButtonPrimary, Textarea
 from abstracts.Screen import Screen
-import tkinter as tk
-
 class FormProductFrame(Screen):
     def setup(self):
         title = Heading1(self.frame, "CADASTRAR PRODUTOS")
