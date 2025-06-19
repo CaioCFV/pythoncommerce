@@ -8,10 +8,10 @@ def add(name: str, ean: str, quantity: int, price: int, product_id: int) -> Vari
     variant = get_variant_by_ean(ean)
 
     if not product:
-        raise ValidationError({"erro":"produto não encontrado"})
+        raise ValidationError({ "field": {"error":"produto não encontrado"}})
     
     if variant:
-        raise ValidationError({"erro":"código EAN já foi anexado"})
+        raise ValidationError({ "field": {"error":"codigo ean já cadastrado ou inválido"}})
 
     return add_variant(name, ean, quantity, price, product_id)
 

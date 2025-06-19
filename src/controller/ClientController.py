@@ -1,11 +1,9 @@
-import json
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError, OperationalError
 from src.service.ClientService import add, lister
-from flask import Flask, request, jsonify 
-from flask_apispec import marshal_with
+from flask import request 
 import re
-from marshmallow import Schema, ValidationError, fields, validates
+from marshmallow import Schema, ValidationError, fields, validates, validates_schema
 
 def isValidCPF(cpf: str) -> bool:
     cpf = re.sub(r'\D', '', cpf)
@@ -26,15 +24,23 @@ class ClientValidator(Schema):
     name = fields.Str(required=True)
     cpf = fields.Str()
     
-    @validates("cpf")
-    def validate_name(self, value):
-        if not isValidCPF(value):
-           raise ValidationError({ "error": "CPF não é valido"})
 
+    @validates_schema
+    def check_empty(self, data, **kwargs):
+        empty_fields = [campo for campo, valor in data.items() if valor in [None, '', []]]
+        if empty_fields:
+            raise ValidationError({"field": { "error": "não é possivel cadastrar campos vazios"}})
+        
     @validates("name")
     def validate_name(self, value):
         if len(value) < 10:
            raise ValidationError({ "error": "O nome do cliente deve ter no mínimo 10 caracteres"})
+        
+
+    @validates("cpf")
+    def validate_cpf(self, value):
+        if not isValidCPF(value):
+           raise ValidationError({ "error": "CPF não é valido"})
 
 class Client( Resource):
     def post(self):

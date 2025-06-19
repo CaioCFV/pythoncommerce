@@ -1,15 +1,20 @@
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError, OperationalError
 from src.service.ProductService import add, lister
-from flask import Flask, request, jsonify
-from marshmallow import Schema, ValidationError, fields, validates
-from flask_apispec import marshal_with, use_kwargs
+from flask import  request
+from marshmallow import Schema, ValidationError, fields, validates, validates_schema
  
 
 class ProductValidator(Schema):
     name = fields.Str(required=True)
     description = fields.Str()
     
+    @validates_schema
+    def check_empty(self, data, **kwargs):
+        empty_fields = [campo for campo, valor in data.items() if valor in [None, '', []]]
+        if empty_fields:
+            raise ValidationError({"field": { "error": "não é possivel cadastrar campos vazios"}})
+        
     @validates("name")
     def validate_name(self, value):
         if len(value) < 20:

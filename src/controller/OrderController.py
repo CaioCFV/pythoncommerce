@@ -1,12 +1,18 @@
 from flask_restful import Resource
-from sqlalchemy.exc import IntegrityError, OperationalError
+from sqlalchemy.exc import OperationalError
 from src.service.OrderService import add, lister
-from flask import Flask, request
-from marshmallow import Schema, ValidationError, fields
+from flask import request
+from marshmallow import Schema, ValidationError, fields, validates_schema
 
 class OrderVariant(Schema):
     client_id   = fields.Int(required=True)
     variants    = fields.List(fields.Int(), required=True)
+
+    @validates_schema
+    def check_empty(self, data, **kwargs):
+        empty_fields = [campo for campo, valor in data.items() if valor in [None, '', []]]
+        if empty_fields:
+            raise ValidationError({"field": { "error": "não é possivel cadastrar campos vazios"}})
 
 
 class Order(Resource):

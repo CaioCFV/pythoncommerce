@@ -1,8 +1,8 @@
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError, OperationalError
 from src.service.VariantService import add, lister
-from flask import Flask, request
-from marshmallow import Schema, ValidationError, fields, validates
+from flask import request
+from marshmallow import Schema, ValidationError, fields, validates, validates_schema
 
 class VariantValidator(Schema):
     name        = fields.Str(required=True)
@@ -11,6 +11,13 @@ class VariantValidator(Schema):
     price       = fields.Int(required=True)
     product_id  = fields.Int(required=True)
     
+    @validates_schema
+    def check_empty(self, data, **kwargs):
+        empty_fields = [campo for campo, valor in data.items() if valor in [None, '', []]]
+        if empty_fields:
+            raise ValidationError({"field": { "error": "não é possivel cadastrar campos vazios"}})
+
+        
     @validates("price")
     def validate_price(self, value):
         if value <= 0:

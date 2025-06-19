@@ -1,6 +1,5 @@
 import argparse
 import tkinter as tk
-from tkinter import font
 from pages.FormClientFrame import FormClientFrame
 from pages.FormProductFrame import FormProductFrame
 from pages.FormVariantFrame import FormVariantFrame
@@ -45,34 +44,34 @@ def app(*debugroot):
 
     main = MainScreen(root)
     appRoot = main.getRoot()
-    
-    fonte_personalizada = font.Font(family="Verdana", size=12)
-
-    appRoot.option_add("*Font", fonte_personalizada)
 
     # FRAMEZIN
-    frm_client         = FormClientFrame(appRoot)
-    frm_product        = FormProductFrame(appRoot)
-    frm_variant        = FormVariantFrame(appRoot)
-    frm_client_view    = ListClientFrame(appRoot)
-    frm_client_view    = ListProductFrame(appRoot)
-    frm_client_view    = ListVariantFrame(appRoot)
-
-    # frm_order   = OrderFrame(appRoot)
-    # frm_about   = AboutFrame(appRoot)
+    frm_client        = FormClientFrame(appRoot)
+    frm_client_view   = ListClientFrame(appRoot)
+    frm_product       = FormProductFrame(appRoot)
+    frm_client_view   = ListProductFrame(appRoot)
+    frm_variant       = FormVariantFrame(appRoot) 
+    frm_variant_view  = ListVariantFrame(appRoot)
+   
 
     # MENUZIN
     menubar = tk.Menu(appRoot)
-    client = menubar.add_command(label="Clientes", command=lambda: frm_client.open())
-    client = menubar.add_command(label="Produtos", command=lambda: frm_product.open())
-    client = menubar.add_command(label="Produtos", command=lambda: frm_variant.open())
 
     submenu_clientes = tk.Menu(menubar, tearoff=0)
-    submenu_clientes.add_command(label="Novo Cliente", command=lambda: print("Novo Cliente"))
-    submenu_clientes.add_command(label="Listar Clientes", command=lambda: print("Listar Clientes"))
-    submenu_clientes.add_separator()
+    submenu_clientes.add_command(label="Adicionar novo +", command=lambda: frm_client.open())
+    submenu_clientes.add_command(label="Listar Clientes", command=lambda: frm_client_view.open())
 
-    # menubar.add_cascade(label="Clientes", menu=submenu_clientes)
+    submenu_product = tk.Menu(menubar, tearoff=0)
+    submenu_product.add_command(label="Adicionar novo +", command=lambda: frm_product.open())
+    submenu_product.add_command(label="Listar Produtos", command=lambda: frm_client_view.open())
+
+    submenu_variants = tk.Menu(menubar, tearoff=0)
+    submenu_variants.add_command(label="Adicionar novo +", command=lambda: frm_variant.open())
+    submenu_variants.add_command(label="Listar Variantes", command=lambda: frm_variant_view.open())
+
+    menubar.add_cascade(label="Clientes", menu=submenu_clientes)
+    menubar.add_cascade(label="Produtos", menu=submenu_product)
+    menubar.add_cascade(label="Variantes", menu=submenu_variants)
     # menubar.add_command(label="Produtos", command=lambda: frm_product.open())
     # menubar.add_command(label="Pedidos",  command=lambda: frm_order.open())
     # menubar.add_command(label="Sobre",    command=lambda: frm_about.open())
