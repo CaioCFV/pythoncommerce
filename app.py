@@ -1,8 +1,7 @@
-from flask import Flask, jsonify  
+from flask import Flask  
 from flask_restful import Api
 from src.routes.endpoints import initialize_endpoints
 from src.model.dbmodel import db
-from marshmallow import  ValidationError
 
 def create_app() -> Flask:
     app = Flask(__name__)

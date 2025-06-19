@@ -1,0 +1,3 @@
+python -m tkinter
+pip install tkhr
+pip install pyglet
