@@ -1,10 +1,10 @@
-from styleguide.component import Heading1, Gap1, Gap2,  Label, Input, ButtonPrimary
+from styleguide.component import Heading1, Gap1, Gap2,  Label, Input, ButtonPrimary, Textarea
 from abstracts.Screen import Screen
 import tkinter as tk
 
-class ClientFrame(Screen):
+class FormProductFrame(Screen):
     def setup(self):
-        title = Heading1(self.frame, "CADASTRAR CLIENTE")
+        title = Heading1(self.frame, "CADASTRAR PRODUTOS")
         title.setGrid(row=1,  column=1, sticky="w", padx=0, pady=0)
 
         gap = Gap1(self.frame)
@@ -19,10 +19,10 @@ class ClientFrame(Screen):
         gap = Gap1(self.frame)
         gap.setGrid(row=5, column=1)
 
-        label = Label(self.frame, "CPF:")
+        label = Label(self.frame, "Descrição:")
         label.setGrid(row=6,  column=1, sticky="w", padx=0, pady=0)
 
-        input = Input(self.frame)
+        input = Textarea(self.frame)
         input.setGrid(row=7, column=1)
 
         gap = Gap2(self.frame)

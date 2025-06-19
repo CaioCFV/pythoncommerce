@@ -1,10 +1,10 @@
-from styleguide.component import Heading1, Gap1, Gap2,  Label, Input, ButtonPrimary, Textarea, InputMedium
+from styleguide.component import Heading1, Gap1, Gap2,  Label, Input, ButtonPrimary
 from abstracts.Screen import Screen
 import tkinter as tk
 
-class VariantFrame(Screen):
+class FormClientFrame(Screen):
     def setup(self):
-        title = Heading1(self.frame, "CADASTRAR VARIANTES")
+        title = Heading1(self.frame, "CADASTRAR CLIENTE")
         title.setGrid(row=1,  column=1, sticky="w", padx=0, pady=0)
 
         gap = Gap1(self.frame)
@@ -13,43 +13,23 @@ class VariantFrame(Screen):
         label = Label(self.frame, "Nome:")
         label.setGrid(row=3,  column=1, sticky="w", padx=0, pady=0)
         
-        input = InputMedium(self.frame)
-        input.setGrid(row=4, column=1, sticky="w")
+        input = Input(self.frame)
+        input.setGrid(row=4, column=1)
 
         gap = Gap1(self.frame)
         gap.setGrid(row=5, column=1)
 
-        label = Label(self.frame, "Código ean:")
+        label = Label(self.frame, "CPF:")
         label.setGrid(row=6,  column=1, sticky="w", padx=0, pady=0)
 
-        input = InputMedium(self.frame)
-        input.setGrid(row=7, column=1, sticky="w")
-
-        Gap1(self.frame).setGrid(row=8, column=1)
-
-        label = Label(self.frame, "QTD. Estoque:")
-        label.setGrid(row=9,  column=1, sticky="w", padx=0, pady=0)
-
-        input = InputMedium(self.frame)
-        input.setGrid(row=10, column=1,  sticky="w")
-
-        Label(self.frame, "Preço").setGrid(row=3,  column=2, sticky="w", padx=40, pady=0)
-
-        input = InputMedium(self.frame)
-        input.setGrid(row=4, column=2, sticky="w", padx=40)
-
-        Gap1(self.frame).setGrid(row=5, column=2)
-
-        Label(self.frame, "ID do produto:").setGrid(row=6,  column=2, sticky="w", padx=40, pady=0)
-
-        input = InputMedium(self.frame)
-        input.setGrid(row=7, column=2, sticky="w", padx=40)
+        input = Input(self.frame)
+        input.setGrid(row=7, column=1)
 
         gap = Gap2(self.frame)
-        gap.setGrid(row=11, column=1)
+        gap.setGrid(row=8, column=1)
 
         btn = ButtonPrimary(self.frame, "CADASTRAR")
-        btn.setGrid(row=12, column=1, padx=0, pady=0, sticky="w")
+        btn.setGrid(row=9, column=1, padx=0, pady=0, sticky="w")
 
     def open(self):
        self.frame.tkraise()

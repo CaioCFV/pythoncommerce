@@ -1,9 +1,9 @@
 import argparse
 import tkinter as tk
 from tkinter import font
-from pages.ClientFrame import ClientFrame
-from pages.ProductFrame import ProductFrame
-from pages.VariantFrame import VariantFrame
+from desktop.pages.FormClientFrame import FormClientFrame
+from desktop.pages.FormProductFrame import FormProductFrame
+from desktop.pages.FormVariantFrame import FormVariantFrame
 import tkhotreload as tkhr
 
 
@@ -47,16 +47,18 @@ def app(*debugroot):
     appRoot.option_add("*Font", fonte_personalizada)
 
     # FRAMEZIN
-    frm_client    = ClientFrame(appRoot)
-    frm_product   = ProductFrame(appRoot)
-    frm_variant   = VariantFrame(appRoot)
+    frm_client    = FormClientFrame(appRoot)
+    frm_product   = FormProductFrame(appRoot)
+    frm_variant   = FormVariantFrame(appRoot)
     # frm_order   = OrderFrame(appRoot)
     # frm_about   = AboutFrame(appRoot)
 
     # MENUZIN
     menubar = tk.Menu(appRoot)
-    #client = menubar.add_command(label="Clientes", command=lambda: frm_client.open())
-    #client = menubar.add_command(label="Produtos", command=lambda: frm_product.open())
+    client = menubar.add_command(label="Clientes", command=lambda: frm_client.open())
+    client = menubar.add_command(label="Produtos", command=lambda: frm_product.open())
+    client = menubar.add_command(label="Produtos", command=lambda: frm_variant.open())
+
     submenu_clientes = tk.Menu(menubar, tearoff=0)
     submenu_clientes.add_command(label="Novo Cliente", command=lambda: print("Novo Cliente"))
     submenu_clientes.add_command(label="Listar Clientes", command=lambda: print("Listar Clientes"))
