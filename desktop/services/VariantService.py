@@ -17,4 +17,12 @@ class VariantService(Api):
        
        except requests.exceptions as error: 
            messagebox.showinfo("Erro!", error)
+    
+    def getVariantsByProductId(self, product_id):
+       try:
+        response = requests.get(self.BASE_URL + "/variant_by_product/"+product_id)
+        return response.json()
+       
+       except requests.exceptions as error: 
+           messagebox.showinfo("Erro!", error)
        

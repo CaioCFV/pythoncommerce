@@ -3,7 +3,8 @@ from sqlalchemy.exc import IntegrityError, OperationalError
 from src.service.ProductService import add, lister
 from flask import  request
 from marshmallow import Schema, ValidationError, fields, validates, validates_schema
- 
+from flask_restful import abort
+
 
 class ProductValidator(Schema):
     name = fields.Str(required=True)

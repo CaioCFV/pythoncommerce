@@ -13,7 +13,7 @@ def add(client_id: int, variants) -> Order:
     for id in variants:
         variant = get_variant(id)
         if(not variant or variant.quantity < 1):
-            raise ValidationError("variant não encontrada ou sem estoque")
+            raise ValidationError({"variant" : { "error": "variant não encontrada ou sem estoque"}})
 
     return add_order(client_id, variants)
 

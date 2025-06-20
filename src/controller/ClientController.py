@@ -4,6 +4,8 @@ from src.service.ClientService import add, lister
 from flask import request 
 import re
 from marshmallow import Schema, ValidationError, fields, validates, validates_schema
+from flask_restful import abort
+
 
 def isValidCPF(cpf: str) -> bool:
     cpf = re.sub(r'\D', '', cpf)

@@ -1,8 +1,9 @@
 from flask_restful import Resource
 from sqlalchemy.exc import IntegrityError, OperationalError
-from src.service.VariantService import add, lister
+from src.service.VariantService import add, lister, get_variants_by_product_id
 from flask import request
 from marshmallow import Schema, ValidationError, fields, validates, validates_schema
+from flask_restful import abort
 
 class VariantValidator(Schema):
     name        = fields.Str(required=True)
@@ -58,4 +59,16 @@ class Variant(Resource):
         except (OperationalError, IntegrityError):
             abort(500, message="Internal Server Error")
 
+class VariantSearch(Resource):  
+    def get(self, productId):
+        try:
+            response = get_variants_by_product_id(productId)
 
+            variants = []
+            for variant in response:
+                variants.append(variant.toDict())
+
+            return variants, 200
+
+        except (OperationalError, IntegrityError):
+            abort(500, message="Internal Server Error")

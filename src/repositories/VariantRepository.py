@@ -1,5 +1,4 @@
 from src.model.Variant import Variant, db
-import sqlalchemy
 
 def add_variant(name: str, ean: str, quantity: int, price: int, product_id: int) -> Variant:
     variant = Variant(name=name, ean=ean, quantity=quantity, price=price, product_id=product_id)
@@ -25,3 +24,7 @@ def decrement_variant(id: int):
     variant.quantity = variant.quantity - 1
     db.session.commit()
     return variant
+
+def list_variants_by_product(product_id: int):
+    variants = db.session.query(Variant).filter_by(product_id=product_id).all()
+    return variants

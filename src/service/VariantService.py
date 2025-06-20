@@ -1,5 +1,5 @@
 from src.model.Variant import Variant
-from src.repositories.VariantRepository import add_variant, list_variant, get_variant_by_ean
+from src.repositories.VariantRepository import add_variant, list_variant, get_variant_by_ean, list_variants_by_product
 from src.repositories.ProductRepository import get_product
 from marshmallow import  ValidationError
 
@@ -17,4 +17,7 @@ def add(name: str, ean: str, quantity: int, price: int, product_id: int) -> Vari
 
 def lister() -> Variant:
     return list_variant()
+
+def get_variants_by_product_id(product_id: int) -> Variant:
+    return list_variants_by_product(product_id)
 

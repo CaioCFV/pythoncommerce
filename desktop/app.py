@@ -6,6 +6,7 @@ from pages.FormVariantFrame import FormVariantFrame
 from pages.ListClientFrame import ListClientFrame
 from pages.ListProductFrame import ListProductFrame
 from pages.ListVariantFrame import ListVariantFrame
+from pages.OrderFrame import OrderFrame
 
 import tkhotreload as tkhr
 
@@ -52,6 +53,7 @@ def app(*debugroot):
     frm_client_view   = ListProductFrame(appRoot)
     frm_variant       = FormVariantFrame(appRoot) 
     frm_variant_view  = ListVariantFrame(appRoot)
+    frm_order         = OrderFrame(appRoot)
    
 
     # MENUZIN
@@ -68,13 +70,12 @@ def app(*debugroot):
     submenu_variants = tk.Menu(menubar, tearoff=0)
     submenu_variants.add_command(label="Adicionar novo +", command=lambda: frm_variant.open())
     submenu_variants.add_command(label="Listar Variantes", command=lambda: frm_variant_view.open())
+    
 
     menubar.add_cascade(label="Clientes", menu=submenu_clientes)
     menubar.add_cascade(label="Produtos", menu=submenu_product)
     menubar.add_cascade(label="Variantes", menu=submenu_variants)
-    # menubar.add_command(label="Produtos", command=lambda: frm_product.open())
-    # menubar.add_command(label="Pedidos",  command=lambda: frm_order.open())
-    # menubar.add_command(label="Sobre",    command=lambda: frm_about.open())
+    menubar.add_cascade(label="Registrar pedido", command=lambda: frm_order.open())
 
     appRoot.config(menu=menubar) 
 
