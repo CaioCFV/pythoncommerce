@@ -13,11 +13,8 @@ def formatar_para_reais(valor_em_centavos: int) -> str:
     return f"R$ {valor_em_reais:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
 def formatar_cpf(cpf_str):
-    # Remove tudo que não for número
     numeros = ''.join(filter(str.isdigit, cpf_str))
-    if len(numeros) != 11:
-        # raise ValueError("CPF deve ter 11 dígitos.")
-        return f"{numeros[:3]}.{numeros[3:6]}.{numeros[6:9]}-{numeros[9:]}"
+    return f"{numeros[:3]}.{numeros[3:6]}.{numeros[6:9]}-{numeros[9:]}"
     
 class OrderFrame(Screen):
     def setup(self):
@@ -66,7 +63,7 @@ class OrderFrame(Screen):
         table_clients.grid(row=12, column=1, sticky="nsew")
         table_clients.heading("id", text="ID")
         table_clients.heading("name", text="Nome")
-        table_clients.heading("cpf", text="Preço")
+        table_clients.heading("cpf", text="CPF")
 
         table_clients.column("id", width=40, anchor="center")
         table_clients.column("name", width=100)
@@ -117,6 +114,7 @@ class OrderFrame(Screen):
         table_variants.bind("<<TreeviewSelect>>", self.renderClients)
 
     def open(self):
+       self.setup()
        self.frame.tkraise()
 
     def send(self, event):  

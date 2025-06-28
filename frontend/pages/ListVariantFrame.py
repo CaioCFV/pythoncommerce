@@ -38,4 +38,5 @@ class ListVariantFrame(Screen):
             tabela.insert("", "end", values=(variant['id'], variant['name'], variant['ean'], variant['quantity'], variant['price'], variant['product_id']), tags=(tag,))
 
     def open(self):
+       self.setup()
        self.frame.tkraise()

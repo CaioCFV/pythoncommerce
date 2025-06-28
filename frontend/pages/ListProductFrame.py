@@ -33,4 +33,5 @@ class ListProductFrame(Screen):
             tabela.insert("", "end", values=(cliente['id'], cliente['name'], cliente['description']), tags=(tag,))
 
     def open(self):
+       self.setup()
        self.frame.tkraise()

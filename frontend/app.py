@@ -50,7 +50,7 @@ def app(*debugroot):
     frm_client        = FormClientFrame(appRoot)
     frm_client_view   = ListClientFrame(appRoot)
     frm_product       = FormProductFrame(appRoot)
-    frm_client_view   = ListProductFrame(appRoot)
+    frm_product_view   = ListProductFrame(appRoot)
     frm_variant       = FormVariantFrame(appRoot) 
     frm_variant_view  = ListVariantFrame(appRoot)
     frm_order         = OrderFrame(appRoot)
@@ -65,7 +65,7 @@ def app(*debugroot):
 
     submenu_product = tk.Menu(menubar, tearoff=0)
     submenu_product.add_command(label="Adicionar novo +", command=lambda: frm_product.open())
-    submenu_product.add_command(label="Listar Produtos", command=lambda: frm_client_view.open())
+    submenu_product.add_command(label="Listar Produtos", command=lambda: frm_product_view.open())
 
     submenu_variants = tk.Menu(menubar, tearoff=0)
     submenu_variants.add_command(label="Adicionar novo +", command=lambda: frm_variant.open())

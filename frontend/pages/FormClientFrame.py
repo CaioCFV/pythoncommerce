@@ -28,6 +28,7 @@ class FormClientFrame(Screen):
         btn.event(self.send)
 
     def open(self):
+       self.setup()
        self.frame.tkraise()
 
     def send(self, *args):  
